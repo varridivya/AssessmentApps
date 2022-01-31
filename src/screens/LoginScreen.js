@@ -19,8 +19,8 @@ const LoginScreen = ({ navigation }, props) => {
     const dispatch = useDispatch();
 
     const { DeviceModule } = NativeModules;
-    // const isEmulator = DeviceModule.isEmulator();
-    const isEmulator = true;
+    const isEmulator = DeviceModule.isEmulator();
+
     return (
         <View style={styles.container}>
             {isEmulator && (
