@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import {
     View,
@@ -13,14 +15,14 @@ import { setName } from '../redux';
 import { NativeModules } from 'react-native';
 import { appOnEmulator, LOGIN } from '../constants/constants';
 
-const LoginScreen = ({ navigation }, props) => {
+// @flow
+const LoginScreen = ({ navigation }) => {
 
     const { name } = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
 
     const { DeviceModule } = NativeModules;
     const isEmulator = DeviceModule.isEmulator();
-
     return (
         <View style={styles.container}>
             {isEmulator && (

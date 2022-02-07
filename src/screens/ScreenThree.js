@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
     View,
@@ -8,6 +9,7 @@ import {
 import { useSelector } from 'react-redux';
 import { Go_BACK_TO_HOME_TEXT, HOME } from '../constants/constants';
 
+// @flow
 const ScreenThree = ({ navigation }) => {
     const { name } = useSelector(state => state.userReducer);
     return (
