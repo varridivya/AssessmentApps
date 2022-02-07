@@ -1,5 +1,11 @@
+
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    TouchableOpacity,
+} from 'react-native';
 import SwipeButton from 'rn-swipe-button';
 import { useSelector } from 'react-redux';
 import thumbIcon from '../images/thumbIcon.png';
@@ -13,19 +19,13 @@ const ScreenTwo = ({ navigation }) => {
                 <Text style={styles.nameStyle}>Hi, {name}</Text>
             </View>
             <View style={styles.container1}>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('ScreenThree')}
-                    style={styles.appButtonContainer}>
+                <TouchableOpacity onPress={() => navigation.navigate('ScreenThree')} style={styles.appButtonContainer}>
                     <Text style={styles.appButtonText}>{PRESS_ME}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('ScreenThree')}
-                    style={[styles.appButtonContainer, { backgroundColor: 'grey' }]}>
+                <TouchableOpacity onPress={() => navigation.navigate('ScreenThree')} style={[styles.appButtonContainer, { backgroundColor: 'grey' }]}>
                     <Text style={styles.appButtonText}>{PRESS_ME}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('ScreenThree')}
-                    style={[styles.appButtonContainer, { backgroundColor: '#007bff' }]}>
+                <TouchableOpacity onPress={() => navigation.navigate('ScreenThree')} style={[styles.appButtonContainer, { backgroundColor: '#007bff' }]}>
                     <Text style={styles.appButtonText}>{PRESS_ME}</Text>
                 </TouchableOpacity>
                 <SwipeButton
@@ -33,16 +33,16 @@ const ScreenTwo = ({ navigation }) => {
                     disabled={false}
                     swipeSuccessThreshold={70}
                     height={45}
-                    width={350}
+                    width={325}
                     title="Slide to continue"
                     onSwipeSuccess={() => navigation.navigate('ScreenThree')}
-                    railBackgroundColor="white"
+                    railBackgroundColor='white'
                     railStyles={{ borderRadius: 5 }}
                     thumbIconImageSource={thumbIcon}
                     thumbIconStyles={{ borderRadius: 5, backgroundColor: 'black' }}
                 />
             </View>
-        </View>
+        </View >
     );
 };
 const styles = StyleSheet.create({
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 12,
         marginVertical: 10,
+
     },
     appButtonText: {
         fontSize: 18,
@@ -78,12 +79,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    nameStyle: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        textAlign: 'right',
-        margin: 10,
-        color: 'yellow',
-    },
+    nameStyle: { fontSize: 24, fontWeight: 'bold', textAlign: 'right', margin: 10, color: 'yellow' },
 });
 export { ScreenTwo };

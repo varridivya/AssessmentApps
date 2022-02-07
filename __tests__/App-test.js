@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * @format
  */
@@ -8,7 +9,10 @@ import App from '../App';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 it('renders correctly', () => {
-  renderer.create(<App />);
+  // renderer.create(<App />);
+  const wrapper = shallow(<App />);
+  expect(wrapper).toMatchSnapshot();
 });
