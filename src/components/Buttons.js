@@ -1,18 +1,23 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { PRESS_ME } from '../constants/constants';
+import PropTypes from 'prop-types';
 
-const Buttons = ({ onPress, style }) => {
+const Buttons = (props) => {
+
     return (
-        <View>
-            <TouchableOpacity
-                onPress={onPress}
-                style={style}>
-                <Text style={styles.appButtonText}>{PRESS_ME}</Text>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+            onPress={props.onPress}
+            style={props.style}>
+            <Text style={styles.appButtonText}>{PRESS_ME}</Text>
+        </TouchableOpacity>
+
     );
+};
+Buttons.props = {
+    onPress: PropTypes.func,
+    style: PropTypes.any,
 };
 const styles = StyleSheet.create({
     appButtonText: {

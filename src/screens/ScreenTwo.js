@@ -1,12 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import SwipeButton from 'rn-swipe-button';
 import { useSelector } from 'react-redux';
 import thumbIcon from '../images/thumbIcon.png';
 import Buttons from '../components/Buttons';
-// @flow
-const ScreenTwo = ({ navigation }) => {
+import PropTypes from 'prop-types';
+
+const ScreenTwo = (props) => {
     const { name } = useSelector(state => state.userReducer);
     return (
         <View style={styles.container}>
@@ -14,9 +15,9 @@ const ScreenTwo = ({ navigation }) => {
                 <Text style={styles.nameStyle}>Hi, {name}</Text>
             </View>
             <View style={styles.container1}>
-                <Buttons onPress={() => navigation.navigate('ScreenThree')} style={styles.appButtonContainer} />
-                <Buttons style={[styles.appButtonContainer, { backgroundColor: 'grey' }]} onPress={() => navigation.navigate('ScreenThree')} />
-                <Buttons style={[styles.appButtonContainer, { backgroundColor: '#007bff' }]} onPress={() => navigation.navigate('ScreenThree')} />
+                <Buttons onPress={() => props.navigation.navigate('ScreenThree')} style={styles.appButtonContainer} />
+                <Buttons style={[styles.appButtonContainer, { backgroundColor: 'grey' }]} onPress={() => props.navigation.navigate('ScreenThree')} />
+                <Buttons style={[styles.appButtonContainer, { backgroundColor: '#007bff' }]} onPress={() => props.navigation.navigate('ScreenThree')} />
                 <SwipeButton
                     containerStyles={{ borderRadius: 8 }}
                     disabled={false}
@@ -24,7 +25,7 @@ const ScreenTwo = ({ navigation }) => {
                     height={45}
                     width={325}
                     title="Slide to continue"
-                    onSwipeSuccess={() => navigation.navigate('ScreenThree')}
+                    onSwipeSuccess={() => props.navigation.navigate('ScreenThree')}
                     railBackgroundColor="white"
                     railStyles={{ borderRadius: 5 }}
                     thumbIconImageSource={thumbIcon}
@@ -33,6 +34,9 @@ const ScreenTwo = ({ navigation }) => {
             </View>
         </View>
     );
+};
+ScreenTwo.props = {
+    navigation: PropTypes.any,
 };
 const styles = StyleSheet.create({
     container: {

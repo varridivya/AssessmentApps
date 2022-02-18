@@ -1,12 +1,11 @@
 /* eslint-disable prettier/prettier */
-
 import React from 'react';
 import {
     View,
     Text,
     StyleSheet,
     TextInput,
-    TouchableOpacity,
+    TouchableOpacity
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -14,9 +13,9 @@ import { setName } from '../redux';
 // Native Module
 import { NativeModules } from 'react-native';
 import { appOnEmulator, LOGIN } from '../constants/constants';
+import PropTypes from 'prop-types';
 
-// @flow
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = (props) => {
 
     const { name } = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
@@ -35,11 +34,14 @@ const LoginScreen = ({ navigation }) => {
                 onChangeText={(value) => dispatch(setName(value))}
                 value={name}
             />
-            <TouchableOpacity onPress={() => navigation.navigate('ScreenTwo')} style={styles.loginBtn}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('ScreenTwo')} style={styles.loginBtn}>
                 <Text style={styles.loginText}>{LOGIN}</Text>
             </TouchableOpacity>
         </View>
     );
+};
+LoginScreen.props = {
+    navigation: PropTypes.any,
 };
 const styles = StyleSheet.create({
     container: {
